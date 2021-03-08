@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     <style>
+       .main{
+         margin-top: 25px;
+         padding: 5;
+       }
+     </style>
+  </head>
+<body>
+    
+
+    <div class="d-flex justify-content-center p-5 ">
+      <h1 class="text-warning  border-bottom border-top p-2"> pagination</h1>
+    </div>
+
+    <div class="container">
+        <ul class="list-unstyled"> </ul>
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination"></ul>
+        </nav>
+    </div>
+  
+   <script src="index.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- import axios from "axios";
+
+
+var paginationWrapper = document.querySelector('.pagination');
+var postListWrapper = document.querySelector('.list-unstyled');
+var perPageCount = 10;
+
+var getContent = (start,end) =>{
+
+    axios.get(`http://localhost:3000/posts?_start=${start}&_end=${end}`).then((response) => {
+    
+    var totalCount = response.headers['x-total-count'];
+   
+
+    var countPaginationNumber = Math.floor(totalCount / perPageCount);
+     randerPostList(response.data);
+     randerPagination(countPaginationNumber);
+   
+})
+
+};
+
+
+    getContent( 0, 10);
+
+    var randerPostList = (postlist) =>{
+        postListWrapper.innerHTML = "";
+
+        postlist.forEach((postItem) => {
+            var postlistItem = document.createElement('li');
+            postlistItem.classList.add('media');
+            postlistItem.classList.add('mt-2')
+
+            var postBody = document.createElement('div');
+
+            var header = document.createElement('h5');
+            header.classList.add('mt-0');
+            header.classList.add('mb-1');
+            header.innerHTML = postItem.title + postItem.id;
+
+            var bodyContent = document.createElement('div');
+            bodyContent.innerHTML = postItem.body;
+
+
+            postBody.appendChild(header);
+
+            postBody.appendChild(bodyContent);
+
+            postlistItem.appendChild(postBody);
+
+            postListWrapper.appendChild(postlistItem);
+
+            
+        });
+       
+
+    
+    };
+
+
+    var randerPagination = (countPaginationNumber) =>{
+        paginationWrapper.innerHTML = "";
+
+    for(var i = 0; i < countPaginationNumber; i++){  
+        var anchor = document.createElement('a');
+        anchor.classList.add('page-link');
+        anchor.setAttribute('href', '#');
+        var countNum = i + 1;
+        anchor.innerHTML = countNum ;
+
+        /////creat list///////
+        var pageItem = document.createElement('li');
+        pageItem.classList.add('page-item');
+        
+        pageItem.addEventListener('click', (event) =>{
+
+            var end = countNum * perPageCount;
+            var start = end - perPageCount;
+            console.log(start,end)
+
+            // getContent(start, end);
+        });
+
+        pageItem.appendChild(anchor);
+        paginationWrapper.appendChild(pageItem);
+
+    };
+
+} -->

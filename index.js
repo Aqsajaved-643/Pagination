@@ -1,16 +1,16 @@
 import axios from "axios";
 
-const paginationWrapper = document.querySelector(".pagination");
-const postListWrapper = document.querySelector(".list-unstyled");
-const perPageCount = 10;
+var paginationWrapper = document.querySelector(".pagination");
+var postListWrapper = document.querySelector(".list-unstyled");
+var perPageCount = 10;
 
-const getContent = (start, end, stopPaginationRender = false) => {
+var getContent = (start, end, stopPaginationRender = false) => {
   axios
     .get(`http://localhost:3000/posts?_start=${start}&_end=${end}`)
     .then((response) => {
-      const totalCount = response.headers["x-total-count"];
+      var totalCount = response.headers["x-total-count"];
 
-      const countPaginationNumber = Math.floor(totalCount / perPageCount);
+      var countPaginationNumber = Math.floor(totalCount / perPageCount);
 
       renderPostList(response.data);
 
@@ -22,22 +22,22 @@ const getContent = (start, end, stopPaginationRender = false) => {
 
 getContent(0, 10, false);
 
-const renderPostList = (postList) => {
+var renderPostList = (postList) => {
   postListWrapper.innerHTML = "";
 
   postList.forEach((postItem) => {
-    const postlistItem = document.createElement("li");
+    var postlistItem = document.createElement("li");
     postlistItem.classList.add("media");
     postlistItem.classList.add("mt-2");
 
-    const postbody = document.createElement("div");
+    var postbody = document.createElement("div");
 
-    const header = document.createElement("h5");
+    var header = document.createElement("h5");
     header.classList.add("mt-0");
     header.classList.add("mb-1");
     header.innerHTML = postItem.title + postItem.id;
 
-    const bodyContent = document.createElement("div");
+    var bodyContent = document.createElement("div");
     bodyContent.innerHTML = postItem.body;
 
     postbody.appendChild(header);
@@ -49,16 +49,17 @@ const renderPostList = (postList) => {
   });
 };
 
-const renderPagination = (countPaginationNumber) => {
+var renderPagination = (countPaginationNumber) => {
   paginationWrapper.innerHTML = "";
   for (let i = 0; i < countPaginationNumber; i++) {
-    const anchor = document.createElement("a");
+    var anchor = document.createElement("a");
     anchor.classList.add("page-link");
     anchor.setAttribute("href", "#");
-    const count = i + 1;
+    var count = i + 1;
+   
     anchor.innerHTML = count;
 
-    const pageItem = document.createElement("li");
+    var pageItem = document.createElement("li");
     pageItem.classList.add("page-item");
 
     if (i === 0) {
@@ -66,8 +67,8 @@ const renderPagination = (countPaginationNumber) => {
     }
 
     pageItem.addEventListener("click", (event) => {
-      const end = count * perPageCount;
-      const start = end - perPageCount;
+      var end = count * perPageCount;
+      var start = end - perPageCount;
 
       console.log(start, end);
 
